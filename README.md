@@ -1,67 +1,53 @@
 # CRUD API Post Social Media
 
 Project ini dibuat dalam rangka menyelesaikan technical test backend internship Octoscript.id. Tujuan dari project ini adalah untuk membuat sebuah API yang dapat melakukan proses CRUD (Create, Read, Update, Delete) untuk mengelola postingan sosial media. Dokumentasi dari API dibuat dengan menggunakan Swagger dan dapat diakses pada url http://localhost:8080/ . Namun, sebelum mengakses url tersebut, diperlukan langkah-langkah untuk menjalankan program. 
+&nbsp;
 
 ## Daftar Isi Panduan Menjalankan Program
 1. [Clone Repository](#clone-repository)
+2. [Database, Migration dan Seeder](#database-migration-dan-seeder)
+3. [Jalankan Program](#jalankan-program)
 
-
+&nbsp;
 ## Clone Repository
 
 Aktifkan XAMPP (saya menggunakan versi 8.2.12) dan buka command prompt di folder htdocs. Kemudian, jalankan perintah di bawah ini.
-"""
-git clone
-"""
+```
+git clone https://github.com/nmsupyan20/crud-api-post-socmed.git
+```
+Setelah proses clone selesai, masuk ke dalam folder crud-api-post-socmed dengan menggunakan perintah `cd` seperti perintah di bawah.
+```
+cd crud-api-post-socmed
+```
+Lalu, ketikan perintah `composer install` untuk menginstal semua dependency yang dibutuhkan oleh project ini. Untuk mengetikkan perintah `composer install` pastikan composer telah terinstal di perangkat. Cara untuk memeriksanya dengan mengetikkan `composer --version`. Jika composer belum terinstal silahkan instal terlebih dahulu pada halaman website resminya di [composer](https://getcomposer.org/).
+```
+composer install
+```
+Setelah itu, ketikkan perintah `code .` di terminal untuk langsung membuka text editor Visual Studio Code.
 
-## Installation & updates
+&nbsp;
+## Database, Migration dan Seeder
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Buat sebuah database dengan nama `crud_api_post_socmed` dengan perintah berikut.
+```
+CREATE DATABASE crud_api_post_socmed;
+```
+Lalu, ubah file dengan nama `env` menjadi `.env` dan jalankan migration menggunakan perintah di bawah.
+```
+php spark migrate
+```
+Perintah migrate di atas akan membuat sebuah table dengan nama post. Setelah itu, jalankan seeder untuk membuat dummy data dengan perintah sebagai berikut.
+```
+php spark db:seed PostSeeder
+```
+Saat menjalankan perintah  `php spark db:seed PostSeeder`, maka tabel post akan terisi dengan data dummy.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+&nbsp;
+## Jalankan Program
 
-## Setup
+Setelah semua langkah di atas telah dilakukan, program sudah siap untuk dijalankan. Untuk menjalankan program gunakan perintah `php spark serve` seperti berikut.
+```
+php spark serve
+```
+Dengan menjalankan perintah di atas, maka dokumentasi API sudah bisa diakses pada link http://localhost:8080 . Dokumentasi tersebut dibuat dengan menggunakan Swaagger UI (untuk tampilan) dan Swagger-PHP (untuk anotasi swagger).
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
-
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
