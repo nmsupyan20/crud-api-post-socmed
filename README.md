@@ -1,18 +1,17 @@
-# CodeIgniter 4 Application Starter
+# CRUD API Post Social Media
 
-## What is CodeIgniter?
+Project ini dibuat dalam rangka menyelesaikan technical test backend internship Octoscript.id. Tujuan dari project ini adalah untuk membuat sebuah API yang dapat melakukan proses CRUD (Create, Read, Update, Delete) untuk mengelola postingan sosial media. Dokumentasi dari API dibuat dengan menggunakan Swagger dan dapat diakses pada url http://localhost:8080/ . Namun, sebelum mengakses url tersebut, diperlukan langkah-langkah untuk menjalankan program. 
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Daftar Isi Panduan Menjalankan Program
+1. [Clone Repository](#clone-repository)
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Clone Repository
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Aktifkan XAMPP (saya menggunakan versi 8.2.12) dan buka command prompt di folder htdocs. Kemudian, jalankan perintah di bawah ini.
+"""
+git clone
+"""
 
 ## Installation & updates
 
